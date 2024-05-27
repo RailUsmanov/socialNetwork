@@ -1,0 +1,22 @@
+.textarea textarea {
+    width: 80%;
+    height: 200px;
+    padding: 20px;
+    resize: none;
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px gray;
+}
+
+.button {
+    width: 80%;
+    text-align: end;
+    & button{
+        border-radius: 5px;
+        margin: 5px;
+    }
+    & button:hover{
+        color: gold;
+        background-color: gray;
+        box-shadow: 5px 5px 5px gray;
+    }
+}

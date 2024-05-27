@@ -1,0 +1,39 @@
+.header{
+    display: grid;
+    grid-template-areas: "a b";
+    align-items: center;
+    background-color: gray;
+    grid-area: header;
+    color: white;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.header .header_name{
+    display: flex;
+    align-items: center;
+    grid-area: a;
+}
+
+.header .header_dopOption{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 15px;
+    grid-area: b;
+}
+
+.header .header_login a{
+    color: white;
+    text-decoration: none;
+}
+.header .header_dopOption a:hover{
+    color: gold;
+}
+
+.header .header_login{
+    margin-left: 10px;
+}
+
+.header .header_login .header_logout:hover{
+    color: gold;
+}

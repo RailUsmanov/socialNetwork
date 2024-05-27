@@ -1,0 +1,94 @@
+.friends {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.friend-details {
+    flex: 1;
+}
+
+.friends img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.friends_follow {
+    margin-left: auto;
+}
+
+.friends_follow button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.friends_follow button:hover {
+    background-color: #e0e0e0;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchForm form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.searchForm input[type="text"] {
+    flex: 1;
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+    width: 500px;
+}
+
+.searchForm select {
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    width: 200px;
+    border-left: none;
+    font-size: 13px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.searchForm button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchForm button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,14 @@
+.nav{
+    font-size: 20px;
+    background-color: gray;
+    grid-area: nav;
+    height: 100%;
+    padding-top: 20px;
+    margin-right: 10px;
+}
+.nav div{
+    margin: 15px;
+}
+.nav a{
+    text-decoration:  none ;
+}
