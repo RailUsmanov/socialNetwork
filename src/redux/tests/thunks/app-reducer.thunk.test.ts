@@ -1,7 +1,7 @@
-import initializedApp, {actions} from "./app-reducer";
-import {getAuthUserData} from "./auth-reducer";
+import {actions} from "./actions/app-actions";
+import {initializedApp} from "./thunks/app-thunk";
 
-test("", async ()=>{
+test("Initialized App", async ()=>{
     const thunk = initializedApp()
     const dispatch = jest.fn()
     //@ts-ignore

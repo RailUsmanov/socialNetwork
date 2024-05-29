@@ -1,7 +1,8 @@
 import {authApi, AuthMeDataType, LoginDataType, LogoutDataType} from "../DAL/auth-api";
 import {ResultCode} from "../DAL/api";
-import {actions, getAuthUserData, getCaptcha, login, logout} from "./auth-reducer";
 import {CaptchaDataType, security} from "../DAL/security-api";
+import {actions} from "./actions/auth-actions";
+import {getAuthUserData, getCaptcha, login, logout} from "./thunks/auth-thunk";
 
 jest.mock("../DAL/auth-api")
 jest.mock("../DAL/security-api")

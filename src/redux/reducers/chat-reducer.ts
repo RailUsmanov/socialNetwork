@@ -91,7 +91,7 @@ export const sendMessages = (messages: string): ThunkType => async (dispatch) =>
     chatAPI.sendMessages(messages)
 }
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 type ActionsType =
     | MessagesReceivedACType
     | StopMessagesProcessingACType

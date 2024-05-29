@@ -1,6 +1,7 @@
-import {action, getUsers, subscribe, unsubscribe} from "./users-reducer";
 import {ApiResponseType, GetUsersDataType, usersAPI} from "../DAL/users-api";
 import {ResultCode} from "../DAL/api";
+import {action} from "./actions/users-actions";
+import {getUsers, subscribe, unsubscribe} from "./thunks/users-thunk";
 jest.mock("../DAL/users-api")
 
 const usersApiMock = usersAPI as jest.Mocked<typeof usersAPI>

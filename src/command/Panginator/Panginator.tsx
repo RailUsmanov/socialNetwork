@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {Button, Pagination} from 'antd';
-import {action, FiltersType, getUsers} from '../redux/users-reducer';
-import {AppDispatch} from '../redux/redux-store';
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {Button, Pagination} from "antd";
+import {AppDispatch} from "../redux/redux-store";
+import {actions, FiltersType} from "../redux/actions/users-actions";
+import {getUsers} from "../redux/thunks/users-thunk";
 
 type PaginatorProps = {
     totalCount: number;
@@ -27,7 +28,7 @@ const Paginator = ({
 
     const onChangedUsers = (current: number) => {
         dispatch(getUsers(current, pageSize, filter));
-        dispatch(action.setCurrentPage(current));
+        dispatch(actions.setCurrentPage(current));
     };
 
     return (

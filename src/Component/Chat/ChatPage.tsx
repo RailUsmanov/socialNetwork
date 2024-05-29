@@ -1,9 +1,9 @@
-import React, {FC, useEffect, useRef, useState} from "react";
-import avatar from "../../img/ava.jpg"
+import React, {FC, useEffect, useLayoutEffect, useRef, useState} from "react";
+import avatar from "../../img/ava.jpg";
 import {MessageTypeAPI} from "../../DAL/chat-api";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../redux/redux-store";
-import {sendMessages, startMessagesListening, stopMessagesListening} from "../../redux/chat-reducer";
+import {sendMessages, startMessagesListening, stopMessagesListening} from "../../redux/thunks/chat-thunk";
 
 const ChatPage = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -27,7 +27,6 @@ const ChatPage = () => {
 }
 
 const Messages = React.memo(() => {
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
     let messages = useSelector((state: RootState) => state.chat.messages)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
     const [isAutoScroll, setIsAutoScroll] = useState(true)
@@ -39,8 +38,7 @@ const Messages = React.memo(() => {
             isAutoScroll && setIsAutoScroll(false)
         }
     }
-    console.log(messages)
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (isAutoScroll) {
             messagesAnchorRef.current?.scrollIntoView({behavior: "smooth"})
         }
