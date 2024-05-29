@@ -1,26 +1,20 @@
-import s from "./Login.module.css"
+import s from "./Login.module.css";
 import {ErrorMessage, Field, Form, Formik, FormikHelpers} from "formik";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/auth-reducer";
 import {useCallback, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {validateLoginForm} from "../../utils/Validaters/validates";
 import {AppDispatch, RootState} from "../../redux/redux-store";
+import {login} from "../../redux/thunks/auth-thunk";
 
-interface loginData {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-    captcha?: string | undefined
-}
 export const Login = () => {
     const navigate = useNavigate()
     const dispatch: AppDispatch = useDispatch()
 
 
-    const isAuth = useSelector((state: RootState) => state.auth.isAuth)
-    const captchaURL = useSelector((state: RootState) => state.auth.captchaURL)
-    const id = useSelector((state: RootState) => state.auth.id)
+    let isAuth = useSelector((state: RootState) => state.auth.isAuth)
+    let captchaURL = useSelector((state: RootState) => state.auth.captchaURL)
+    let id = useSelector((state: RootState) => state.auth.id)
 
     useEffect(() => {
         if (isAuth !== undefined && isAuth) {
@@ -111,3 +105,9 @@ export const Login = () => {
         </div>
     );
 };
+interface loginData {
+    email: string;
+    password: string;
+    rememberMe: boolean;
+    captcha?: string | undefined
+}

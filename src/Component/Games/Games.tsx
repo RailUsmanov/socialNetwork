@@ -1,50 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import nognitsy from '../../img/gamesIcon/nognitsy.png'
+import React, {useState} from "react";
+import styled from "styled-components";
+import iconGames from "../../img/gamesIcon/nognitsy.png";
 
-type Choice = "Камень" | "Ножницы" |  "Бумага"
 
-const GameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-`;
-
-const GameBox = styled.div`
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-`;
-
-const ChoiceButton = styled.button`
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 0 0.5rem;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
-const ResultText = styled.p`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 1rem;
-`;
-const ImgIcon = styled.img`
-    width: 300px;
-    margin: 10px;
-`
 
 const RockPaperScissors: React.FC = () => {
     const [userChoice, setUserChoice] = useState<Choice | null>(null);
@@ -60,7 +18,7 @@ const RockPaperScissors: React.FC = () => {
 
     const determineWinner = (user: Choice, computer: Choice) => {
         if (user === computer) {
-            setResult('Ничья!');
+            setResult("Ничья!");
         } else if (
             (user === 'Камень' && computer === 'Ножницы') ||
             (user === 'Бумага' && computer === 'Камень') ||
@@ -77,7 +35,7 @@ const RockPaperScissors: React.FC = () => {
     return (
         <GameContainer>
             <GameBox>
-                <ImgIcon src={nognitsy}/>
+                <ImgIcon src={iconGames}/>
                 <div>
                     {choices.map((choice) => (
                         <ChoiceButton key={choice} onClick={() => handleUserChoice(choice)}>
@@ -95,7 +53,7 @@ const RockPaperScissors: React.FC = () => {
                 </div>
                 {userChoice && computerChoice && (
                     <ResultText>
-                    Вы выбрали: {userChoice} | Компьютер выбрал: {computerChoice} <br />
+                        Вы выбрали: {userChoice} | Компьютер выбрал: {computerChoice} <br/>
                         {result}
                     </ResultText>
                 )}
@@ -105,3 +63,49 @@ const RockPaperScissors: React.FC = () => {
 };
 
 export default RockPaperScissors;
+
+
+type Choice = "Камень" | "Ножницы" | "Бумага"
+
+//styled
+const GameContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+`;
+
+const GameBox = styled.div`
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+`;
+
+const ChoiceButton = styled.button`
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+`;
+
+const ResultText = styled.p`
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+`;
+const ImgIcon = styled.img`
+    width: 300px;
+    margin: 10px;
+`

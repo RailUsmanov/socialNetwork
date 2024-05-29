@@ -1,5 +1,5 @@
-import {bookmarksReducer, InitialStateType} from "./reducers/bookmarks-reducer";
-import {actions} from "./actions/bookmarks-actions";
+import {bookmarksReducer, InitialStateType} from "../../reducers/bookmarks-reducer";
+import {actions} from "../../actions/bookmarks-actions";
 
 let state: InitialStateType
  beforeEach(()=>{

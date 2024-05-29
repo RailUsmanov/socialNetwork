@@ -1,5 +1,5 @@
-import {chatReducer, InitialStateType} from "./reducers/chat-reducer";
-import {actions} from "./actions/chat-actions";
+import {chatReducer, InitialStateType} from "../../reducers/chat-reducer";
+import {actions} from "../../actions/chat-actions";
 
 let state: InitialStateType;
 

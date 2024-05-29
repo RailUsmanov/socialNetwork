@@ -1,13 +1,13 @@
 import React, {memo, useEffect} from "react";
 import s from "./Users.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import avatar from "../../img/ava.jpg"
-import {getUsers, subscribe, unsubscribe} from "../../redux/users-reducer";
+import avatar from "../../img/ava.jpg";
 import {NavLink, useNavigate, useSearchParams} from "react-router-dom";
-import Paginator from "../../command/Panginator";
+import Paginator from "../../command/Panginator/Panginator";
 import {AppDispatch, RootState} from "../../redux/redux-store";
 import Preload from "../../command/Preloading/Preload";
 import {Field, Form, Formik} from "formik";
+import {getUsers, subscribe, unsubscribe} from "../../redux/thunks/users-thunk";
 
 export const Users = React.memo(() => {
     let users = useSelector((state: RootState) => state.users.users)
@@ -17,9 +17,11 @@ export const Users = React.memo(() => {
     let isFollowingProgress = useSelector((state: RootState) => state.users.isFollowingProgress)
     let isFetching = useSelector((state: RootState) => state.users.isFetching)
     let filter = useSelector((state: RootState) => state.users.filters)
-    let dispatch: AppDispatch = useDispatch()
-    let navigate = useNavigate()
+    let isAuth = useSelector((state: RootState)=> state.auth.isAuth)
+    const dispatch: AppDispatch = useDispatch()
+    const navigate = useNavigate()
     let [searchParams] = useSearchParams();
+
     useEffect(() => {
         //todo Применить query-string для удаления не нужной query параметров из URi
         navigate({
@@ -27,7 +29,6 @@ export const Users = React.memo(() => {
             search: `page=${currentPage}&term=${filter.term}&friend=${filter.friend}`
         })
     }, [filter, currentPage]);
-
     useEffect(() => {
         let term = searchParams.get('term') || '';
         let friend = searchParams.get('friend') || 'null';
@@ -35,6 +36,11 @@ export const Users = React.memo(() => {
             term,
             friend: friend === 'true' ? true : friend === 'false' ? false : null
         }));
+    }, []);
+    useEffect(() => {
+        if(!isAuth){
+            navigate("/login")
+        }
     }, []);
     return (
         <div>

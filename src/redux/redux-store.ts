@@ -1,11 +1,11 @@
 import {configureStore, combineReducers, Action, ThunkAction} from '@reduxjs/toolkit'
-import profileReducer from "./profile-reducer";
-import messagesReducer from "./messages-reducer";
-import usersReducer from "./users-reducer";
-import authReducer from "./auth-reducer";
-import {appReducer} from "./app-reducer";
-import {bookmarksReducer} from "./bookmarks-reducer";
-import {chatReducer} from "./chat-reducer";
+import profileReducer from "./reducers/profile-reducer";
+import messagesReducer from "./reducers/messages-reducer";
+import usersReducer from "./reducers/users-reducer";
+import authReducer from "./reducers/auth-reducer";
+import {appReducer} from "./reducers/app-reducer";
+import {bookmarksReducer} from "./reducers/bookmarks-reducer";
+import {chatReducer} from "./reducers/chat-reducer";
 
 const rootReducer = combineReducers({
     profile: profileReducer,

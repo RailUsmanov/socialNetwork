@@ -1,6 +1,9 @@
-const ADD_MESSAGES = "messages/ADD_MESSAGES";
+import {ActionsTypes, ADD_MESSAGES, DELETE_MESSAGES} from "../actions/messages-actions";
+import uuid from "react-uuid";
+
 type MessagesType = {
-    id: number
+    id: string
+    userID: number
     text: string
 }
 export type InitialStateType = {
@@ -11,46 +14,46 @@ export type InitialStateType = {
 const initialState: InitialStateType = {
     messages: [
         {
-            id: 1,
+            id: "1",
+            userID: 1,
             text: "Любовь и мир вечны. Джон Леннон.",
         },
         {
-            id: 2,
+            id: "2",
+            userID: 2,
             text: "Мечты так и остаются мечтами, если к ним не идти.",
         },
         {
-            id: 3,
+            id: "3",
+            userID: 1,
             text: "Даже если вас съели – у вас два выхода.",
         },
     ],
 };
 
-type ActionsTypes = AddMessagesACType
+
 const messagesReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case ADD_MESSAGES:
             let newMessage = {
-                id: Date.now(),
+                id: uuid(),
+                userID: 1,
                 text: action.payload.messages,
             };
             return {
                 ...state,
                 messages: [...state.messages, newMessage]
             };
+        case DELETE_MESSAGES:
+            return {
+                ...state,
+                messages: state.messages.filter(m=>{
+                    return m.id !== action.payload.id
+                })
+            }
         default:
             return state;
     }
 };
-
-
-type AddMessagesACType = {
-    type: typeof ADD_MESSAGES
-    payload: {
-        messages: string
-    }
-}
-export const action = {
-    addMessages: (messages: string): AddMessagesACType =>({type: ADD_MESSAGES, payload: {messages}})
-}
 
 export default messagesReducer;

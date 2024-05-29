@@ -1,11 +1,11 @@
-import {authApi, AuthMeDataType, LoginDataType, LogoutDataType} from "../DAL/auth-api";
-import {ResultCode} from "../DAL/api";
-import {CaptchaDataType, security} from "../DAL/security-api";
-import {actions} from "./actions/auth-actions";
-import {getAuthUserData, getCaptcha, login, logout} from "./thunks/auth-thunk";
+import {authApi, AuthMeDataType, LoginDataType, LogoutDataType} from "../../../DAL/auth-api";
+import {ResultCode} from "../../../DAL/api";
+import {CaptchaDataType, security} from "../../../DAL/security-api";
+import {actions} from "../../actions/auth-actions";
+import {getAuthUserData, getCaptcha, login, logout} from "../../thunks/auth-thunk";
 
-jest.mock("../DAL/auth-api")
-jest.mock("../DAL/security-api")
+jest.mock("../../../DAL/auth-api")
+jest.mock("../../../DAL/security-api")
 const authApiMock = authApi as jest.Mocked<typeof authApi>
 const securityMock = security as jest.Mocked<typeof security>
 const dispatch = jest.fn()

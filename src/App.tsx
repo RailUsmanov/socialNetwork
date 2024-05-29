@@ -10,14 +10,14 @@ import {Login} from "./Component/Login/Login";
 import {Bookmark} from "./Component/Bookmark/Bookmark";
 import React, {lazy, Suspense, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import initializedApp from "./redux/app-reducer";
 import Preload from "./command/Preloading/Preload";
 import {AppDispatch, RootState} from "./redux/redux-store";
 import Footer from "./Component/Footer/Footer";
 import Calculator from "./Component/Callculator/Calculator";
 import RockPaperScissors from "./Component/Games/Games";
+import {initializedApp} from "./redux/thunks/app-thunk";
 
-const ChatPage = lazy(() => import("./Pages/Chat/ChatPage"))
+const ChatPage = lazy(() => import("./Component/Chat/ChatPage"))
 
 function App() {
     let initialized = useSelector((state: RootState) => state.app.initialized)
@@ -35,18 +35,18 @@ function App() {
                             <Header/>
                             <Nav/>
                             <div className="app-content">
-                                <Suspense fallback={<Preload/>} >
-                                < Routes>
-                                    < Route path="/" element={<Navigate to={"/login"}/>}/>
-                                    <Route path="/profile/:id?" element={<Profile/>}/>
-                                    <Route path="/users" element={<Users/>}/>
-                                    <Route path="/messages" element={<Messages/>}/>
-                                    <Route path="/login" element={<Login/>}/>
-                                    <Route path="/bookmark" element={<Bookmark/>}/>
-                                    <Route path="/chat" element={<ChatPage/>}/>
-                                    <Route path="/calculator" element={<Calculator/>}/>
-                                    <Route path="/games" element={<RockPaperScissors/>}/>
-                                </Routes>
+                                <Suspense fallback={<Preload/>}>
+                                    < Routes>
+                                        < Route path="/" element={<Navigate to={"/login"}/>}/>
+                                        <Route path="/profile/:id?" element={<Profile/>}/>
+                                        <Route path="/users" element={<Users/>}/>
+                                        <Route path="/messages" element={<Messages/>}/>
+                                        <Route path="/login" element={<Login/>}/>
+                                        <Route path="/bookmark" element={<Bookmark/>}/>
+                                        <Route path="/chat" element={<ChatPage/>}/>
+                                        <Route path="/calculator" element={<Calculator/>}/>
+                                        <Route path="/games" element={<RockPaperScissors/>}/>
+                                    </Routes>
                                 </Suspense>
                             </div>
                             <Footer/>
@@ -54,10 +54,7 @@ function App() {
                     </>
             }
         </div>
-
-
-    )
-        ;
+    );
 }
 
 export default App;

@@ -1,14 +1,15 @@
 import s from "./Nav.module.css";
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, {FC, memo} from "react";
 
 
-type ActiveStyleProps ={
+type ActiveStyleProps = {
     isActive: boolean
 }
-export const Nav = () => {
+type NavProps = {};
+export const Nav: FC<NavProps> = memo(() => {
 
-    const active= ({ isActive }: ActiveStyleProps) => {
+    const active = ({isActive}: ActiveStyleProps) => {
         return {
             color: isActive ? "gold" : "white",
         };
@@ -16,47 +17,28 @@ export const Nav = () => {
 
     return (
         <div className={s.nav}>
-            <div>
-                <NavLink to={"/profile"} style={active}>
-                    Профиль
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/messages"} style={active}>
-                    Сообщения
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/users"} style={active}>
-                    Друзья
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/music"} style={active}>
-                    Музыка
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/bookmark"} style={active}>
-                    Закладки
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/chat"} style={active}>
-                    Чат
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/calculator"} style={active}>
-                    Калькулятор
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={"/games"} style={active}>
-                    Игры
-                </NavLink>
-            </div>
+            <NavLink to={"/profile"} style={active}>
+                <div>Профиль</div>
+            </NavLink>
+            <NavLink to={"/users"} style={active}>
+                <div> Друзья</div>
+            </NavLink>
+            <NavLink to={"/messages"} style={active}>
+                <div> Сообщения (демо)</div>
+            </NavLink>
+            <NavLink to={"/chat"} style={active}>
+                <div> Чат</div>
+            </NavLink>
+            <NavLink to={"/calculator"} style={active}>
+                <div>Калькулятор</div>
+            </NavLink>
+            <NavLink to={"/games"} style={active}>
+                <div>Игры (1)</div>
+            </NavLink>
+            <NavLink to={"/bookmark"} style={active}>
+                <div> Закладки (демо)</div>
+            </NavLink>
         </div>
     );
-};
+});
 

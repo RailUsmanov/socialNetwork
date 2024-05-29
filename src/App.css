@@ -5,7 +5,9 @@
     grid-template-areas: 'header header' 'nav content' 'footer footer';
     margin: 10px 10px 0px 10px;
     border-radius: 15px;
-    font-family: Monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 .app-content{

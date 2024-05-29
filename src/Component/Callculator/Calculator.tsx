@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import s from './Calculator.module.css'
+import React, { useState } from "react";
+import s from "./Calculator.module.css";
 const Calculator = () => {
     const [result, setResult] = useState(0);
     const [firstNumber, setFirstNumber] = useState(0);

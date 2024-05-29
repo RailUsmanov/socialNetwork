@@ -1,18 +1,27 @@
 import React, {FC, useEffect, useLayoutEffect, useRef, useState} from "react";
 import avatar from "../../img/ava.jpg";
 import {MessageTypeAPI} from "../../DAL/chat-api";
+import s from "./ChatPage.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../redux/redux-store";
 import {sendMessages, startMessagesListening, stopMessagesListening} from "../../redux/thunks/chat-thunk";
+import {useNavigate} from "react-router-dom";
 
 const ChatPage = () => {
+    let navigate = useNavigate()
     const dispatch: AppDispatch = useDispatch()
-    const status = useSelector((state: RootState) => state.chat.status)
+    let status = useSelector((state: RootState) => state.chat.status)
+    let isAuth = useSelector((state: RootState)=> state.auth.isAuth)
     useEffect(() => {
         dispatch(startMessagesListening())
         return () => {
             dispatch(stopMessagesListening())
         }
+    }, []);
+    useEffect(() => {
+    if(!isAuth){
+        navigate("/login")
+    }
     }, []);
 
     return (
@@ -45,14 +54,7 @@ const Messages = React.memo(() => {
     }, [messages]);
     return (
         <div
-            style={{
-                border: "1px solid black",
-                borderRadius: "15px",
-                padding: "15px",
-                margin: "10px",
-                height: "400px",
-                overflowY: "auto",
-            }}
+            className={s.chatMessages_container}
             onScroll={scrollHandler}
         >
             {messages.map((m) => (
@@ -66,8 +68,8 @@ const Messages = React.memo(() => {
 
 const Message: FC<{ message: MessageTypeAPI }> = React.memo(({message}) => {
     return (
-        <div>
-            <img src={message.photo || avatar} style={{width: "30px"}} alt={message.userName}/>
+        <div className={s.chatMessages_container_messages}>
+            <img src={message.photo || avatar} alt={message.userName}/>
             <b>{message.userName}</b>
             <br/>
             <p>{message.message}</p>
@@ -91,16 +93,8 @@ const AddMessages = React.memo(() => {
     return (
         //todo Применить react-form-hook или formik
         <>
-            <div>
+            <div className={s.chatMessages_container_addMessages}>
         <textarea
-            style={{
-                width: "90%",
-                resize: "none",
-                borderRadius: "15px",
-                padding: "10px",
-                height: "100px",
-                margin: "10px",
-            }}
             value={message}
             onChange={(e) => {
                 setMessage(e.target.value);

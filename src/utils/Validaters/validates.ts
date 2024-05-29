@@ -7,3 +7,10 @@ export const validateLoginForm = Yup.object().shape({
 export const validateMessages = Yup.object().shape({
         messages: Yup.string().required("Вы не написали сообщение!"),
 })
+export const validateBookmark = Yup.object().shape({
+        text: Yup.string().required("Вы ничего не написали!"),
+})
+
+export const validatePost = Yup.object().shape({
+        postText: Yup.string().required("Вы ничего не написали!"),
+})

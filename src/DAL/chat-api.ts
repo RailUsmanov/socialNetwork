@@ -1,7 +1,6 @@
 //todo Следует рассмотреть вариант использования класса вместо функций,
 // чтобы упростить управление состоянием и обработку событий.
 
-
 type SubscriberType = {
     type: 'messages-received';
     callback: MessagesReceivedSubscribersType;
@@ -20,9 +19,8 @@ const subscribers: {
 let webSocket: WebSocket | null = null
 
 const handleCloseListener = () => {
-    console.log('close');
     notifySubscribersAboutStatus('pending')
-    setTimeout(createChannel, 5000);
+    setTimeout(createChannel, 3000);
 };
 
 const handleMessage = (e: MessageEvent) => {

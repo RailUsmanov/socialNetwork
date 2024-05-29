@@ -1,8 +1,20 @@
+.saveBookmarks_Container{
+    margin: 10px;
+}
+.saveBookmarks_Container h2{
+    text-align: center;
+}
 .saveBookmarks{
+    display: flex;
+    justify-content: space-between;
     width: 80%;
     height: 200px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px gray;
     margin: 15px;
+}
+.saveBookmarks_delete{
+    color: red;
+    cursor: pointer;
 }

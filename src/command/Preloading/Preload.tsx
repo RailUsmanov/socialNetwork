@@ -1,4 +1,4 @@
-import s from './Preload.module.css'
+import s from "./Preload.module.css";
 import preload from "../../img/preload/gif.svg";
 import React from "react";
 

@@ -1,43 +1,19 @@
-import styled from 'styled-components';
-
-export const ChatContainer = styled.div`
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 15px;
-  margin: 10px;
-  height: 400px;
-  overflow-y: auto;
-`;
-
-export const MessageContainer = styled.div`
-  img {
+.chatMessages_container{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+.chatMessages_container_messages img{
     width: 30px;
-  }
-  b {
-    margin-left: 10px;
-  }
-  p {
-    margin: 5px 0;
-  }
-  hr {
-    margin: 10px 0;
-  }
-`;
-
-export const TextArea = styled.textarea`
-  width: 90%;
-  resize: none;
-  border-radius: 15px;
-  padding: 10px;
-  height: 100px;
-  margin: 10px;
-`;
-
-export const SendButton = styled.button`
-  text-align: end;
-  width: 90%;
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
+}
+.chatMessages_container_addMessages textarea{
+    width: 90%;
+    resize: none;
+    border-radius: 15px;
+    padding: 10px;
+    height: 100px;
+    margin: 10px;
+}

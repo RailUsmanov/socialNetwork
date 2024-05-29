@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Button, Pagination} from "antd";
-import {AppDispatch} from "../redux/redux-store";
-import {actions, FiltersType} from "../redux/actions/users-actions";
-import {getUsers} from "../redux/thunks/users-thunk";
+import {AppDispatch} from "../../redux/redux-store";
+import {actions, FiltersType} from "../../redux/actions/users-actions";
+import {getUsers} from "../../redux/thunks/users-thunk";
 
 type PaginatorProps = {
     totalCount: number;

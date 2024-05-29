@@ -1,14 +1,46 @@
-.nav{
-    font-size: 20px;
-    background-color: gray;
+:root {
+    --nav-width: 200px;
+    --nav-bg-color: gray;
+    --nav-text-color: white;
+    --nav-hover-bg-color: #a6a3a3;
+}
+
+.nav {
+    font-size: 16px;
+    background-color: var(--nav-bg-color);
     grid-area: nav;
+    width: var(--nav-width);
     height: 100%;
     padding-top: 20px;
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
 }
-.nav div{
-    margin: 15px;
+
+.nav div {
+    margin: 5px;
+    padding: 10px;
+    color: var(--nav-text-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.nav a{
-    text-decoration:  none ;
+
+.nav div:hover {
+    background-color: var(--nav-hover-bg-color);
+}
+
+.nav a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .nav {
+        width: 120px;
+    }
+
+    .nav div {
+        padding: 10px;
+    }
 }

@@ -1,5 +1,5 @@
-import {actions} from "./actions/app-actions";
-import {initializedApp} from "./thunks/app-thunk";
+import {actions} from "../../actions/app-actions";
+import {initializedApp} from "../../thunks/app-thunk";
 
 test("Initialized App", async ()=>{
     const thunk = initializedApp()

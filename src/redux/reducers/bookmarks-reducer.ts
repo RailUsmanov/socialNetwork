@@ -1,13 +1,6 @@
-const SET_BOOKMARKS = "bookmarks/SET_BOOKMARKS"
-const  DELETE_BOOKMARKS = "bookmarks/DELETE_BOOKMARKS"
-export type BookmarkType = {
-    id: number
-    text: string
-}
+import {ActionsTypes, DELETE_BOOKMARKS, SET_BOOKMARKS} from "../actions/bookmarks-actions";
 
- export type InitialStateType = {
-    bookmark: Array<BookmarkType>
-}
+
 
 const initialState: InitialStateType = {
     bookmark: [
@@ -17,9 +10,7 @@ const initialState: InitialStateType = {
         },
     ]
 }
-type ActionsTypes =
-    | SetBookmarksACType
-    | DeleteBookmarksACType
+
 export  const bookmarksReducer = (state = initialState, action: ActionsTypes):  InitialStateType => {
    switch (action.type){
        case SET_BOOKMARKS:
@@ -44,23 +35,11 @@ export  const bookmarksReducer = (state = initialState, action: ActionsTypes):  
    }
 }
 
-type SetBookmarksACType = {
-    type: typeof SET_BOOKMARKS
-    payload: {
-        text: string
-        id: number
-    }
-}
-type DeleteBookmarksACType = {
-    type: typeof  DELETE_BOOKMARKS
-    payload: {
-        id: number
-    }
-}
-export const actions = {
-    setBookmarks: (text: string, id: number = Date.now()): SetBookmarksACType => ({type: SET_BOOKMARKS, payload: {text, id}}),
-    deleteBookmarks:(id: number): DeleteBookmarksACType => ({type: DELETE_BOOKMARKS, payload:{id}})
+export type BookmarkType = {
+    id: number
+    text: string
 }
 
-
-
+export type InitialStateType = {
+    bookmark: Array<BookmarkType>
+}
